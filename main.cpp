@@ -31,6 +31,39 @@ void addCustomer(Customer c) {
     }
 }
 
+void assignJobs() {
+  while (!queue.empty()) {
+    for (auto& tech : technicians) {
+      if (!tech.isBusy && tech.skills[queue.top().service] > 50) {
+        tech.isBusy = true;
+        queue.pop(); 
+        break;
+      }
+    }
+  }
+}
+
+int calculateSatisfaction(Customer c, Technician t) {
+  return (t.skills[c.service] * 10) - c.waitTime; 
+}
+int money = 0;
+map<string, bool> upgrades; // e.g., {"UV Lamp": false}
+
+void buyUpgrade(string item) {
+  if (money >= item.cost) {
+    upgrades[item] = true;
+    money -= item.cost;
+  }
+}
+
+void exportToCSV() {
+  ofstream file("results.csv");
+  file << "Customer,Service,Satisfaction\n";
+  for (auto& c : completedCustomers) {
+    file << c.name << "," << c.service << "," << c.satisfaction << "\n";
+  }
+}
+
 int main() {
 
     return 0;
