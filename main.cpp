@@ -62,7 +62,11 @@ void exportToCSV() {
   for (auto& c : completedCustomers) {
     file << c.name << "," << c.service << "," << c.satisfaction << "\n";
   }
-}
+}/* customer is automatically booking or walk-in
+when customer is not satisfy, their score are lower, at 0 they leave
+similar to nail tech, (ex: no upgrade for too long, not enough customer
+when aquaired certain amount of customer, ability to expand & upgrade)
+*/
 
 int main() {
 
