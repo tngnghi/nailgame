@@ -6,14 +6,6 @@ class Customer {
     std::string name;
     std::string service;
     int patience;
-    bool requiresSpecificTech;
-    bool appointment;
-    std::map<std::string, int> specificTechs;
-};
-class NailCondition {
-    int quality;
-    int healthy;
-    int treatment;
 };
 class Technician {
     std::string name;
