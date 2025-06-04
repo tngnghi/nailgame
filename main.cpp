@@ -6,6 +6,7 @@ class Customer {
     std::string name;
     std::string service;
     int patience;
+std::map<sd::string, int> skillsRequired;
 };
 class Technician {
     std::string name;
